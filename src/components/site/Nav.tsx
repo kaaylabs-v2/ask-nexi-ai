@@ -16,7 +16,7 @@ export function Nav() {
           <Wordmark />
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((l) => {
-              const active = pathname === l.to || (l.to !== "/" && pathname.startsWith(l.to));
+              const active = pathname === l.to || pathname.startsWith(l.to + "/");
               return (
                 <Link
                   key={l.to}
