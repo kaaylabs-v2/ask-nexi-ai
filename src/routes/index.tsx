@@ -13,6 +13,8 @@ import { BrowserFrame, GradientBlobs } from "@/components/site/Decor";
 import { Typewriter } from "@/components/site/Typewriter";
 import { Reveal } from "@/components/site/Reveal";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useCurrency } from "@/components/site/CurrencyContext";
+import { plans } from "@/content/pricing";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/")({
@@ -383,6 +385,7 @@ function Privacy() {
 }
 
 function Pricing() {
+  const { format } = useCurrency();
   return (
     <section className="container-1200 py-24">
       <Reveal>
