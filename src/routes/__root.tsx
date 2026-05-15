@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { ThemeProvider } from "@/components/site/ThemeProvider";
+import { CurrencyProvider } from "@/components/site/CurrencyContext";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { NexiWidget } from "@/components/site/NexiWidget";
@@ -119,15 +120,17 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <div className="flex min-h-screen flex-col">
-          <Nav />
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          <Footer />
-        </div>
-        <NexiWidget />
-        <StickyInstallCTA />
+        <CurrencyProvider>
+          <div className="flex min-h-screen flex-col">
+            <Nav />
+            <main className="flex-1">
+              <Outlet />
+            </main>
+            <Footer />
+          </div>
+          <NexiWidget />
+          <StickyInstallCTA />
+        </CurrencyProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

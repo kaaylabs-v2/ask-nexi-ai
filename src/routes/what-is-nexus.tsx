@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
   ArrowRight, Plug, Compass, Database, Brain, ShoppingCart, FolderKanban,
-  Search, Map, ShieldCheck, Server, Lock, KeyRound, ScrollText, Globe, Copy, Check,
+  Search, ShieldCheck, Server, Lock, KeyRound, ScrollText, Globe, Copy, Check,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { Typewriter } from "@/components/site/Typewriter";
