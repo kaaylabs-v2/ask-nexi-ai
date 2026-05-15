@@ -146,6 +146,8 @@ export const faqs = [
   { q: "Can I customize the branding?", a: "Colors, logo, copy, voice, even the agent's name. Pro and Enterprise plans get full white-label." },
   { q: "Is there multilingual support?", a: "Out of the box, Nexi answers in 40+ languages and matches the visitor's locale automatically." },
   { q: "How does pricing scale?", a: "By queries, not seats. The Trial covers most pilots; Pro covers most production sites." },
+  { q: "What if I exceed my plan limits?", a: "We'll notify you as you approach your limit. You can add a token pack at any time, or upgrade your tier. Your widget never stops working." },
+  { q: "What are token top-up packs?", a: "Token packs add capacity to any paid plan and never expire. They kick in automatically once your monthly query allowance is used. Packs are available in 10K, 20K, 50K and 100K tokens — priced in ₹ for India and $ for the United States. You can stack as many as you need." },
   { q: "Can I cancel anytime?", a: "Yes. Monthly plans are month-to-month. Annual plans can be cancelled at renewal." },
 ];
 
