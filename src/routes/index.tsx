@@ -344,16 +344,16 @@ function Outcomes() {
       </div>
       <div className="mt-12 grid gap-4 md:grid-cols-3">
         {testimonials.map((t, i) => (
-          <Reveal key={t.name} delay={i * 0.08}>
+          <Reveal key={t.company} delay={i * 0.08}>
             <figure className="card-soft p-6 h-full">
               <blockquote className="font-serif italic text-lg leading-snug text-foreground">"{t.quote}"</blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
                 <div className="h-9 w-9 rounded-full bg-[color:var(--sage)]/30 flex items-center justify-center text-xs font-medium">
-                  {t.name.split(" ").map(n => n[0]).join("")}
+                  {t.company.split(" ").map(n => n[0]).join("").slice(0, 2)}
                 </div>
                 <div>
-                  <p className="text-sm font-medium">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
+                  <p className="text-sm font-medium">{t.role}</p>
+                  <p className="text-xs text-muted-foreground">{t.company}</p>
                 </div>
               </figcaption>
             </figure>
