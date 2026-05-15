@@ -8,12 +8,9 @@ export const Route = createFileRoute("/about")({
 });
 
 const team = [
-  { name: "Lena Park", role: "Co-founder & CEO", ask: "Ask me about navigation analytics." },
-  { name: "Mateo Cruz", role: "Co-founder & CTO", ask: "Ask me about retrieval models." },
-  { name: "Sana Iqbal", role: "Head of Design", ask: "Ask me about chat affordances." },
-  { name: "Daniel Wu", role: "Founding Engineer", ask: "Ask me about edge runtimes." },
-  { name: "Aisha Bello", role: "Customer Engineer", ask: "Ask me about rollout playbooks." },
-  { name: "Felix Norén", role: "Head of Marketing", ask: "Ask me about copy that doesn't cringe." },
+  { name: "Santosh Naranapatty", role: "Founder & CEO", ask: "Ask me about navigation analytics." },
+  { name: "Krishnan N", role: "Founder & CEO, Kaaylabs", ask: "Ask me about scaling AI for the enterprise." },
+  { name: "Swati Sahu", role: "Head of Marketing", ask: "Ask me about copy that doesn't cringe." },
 ];
 
 function About() {
