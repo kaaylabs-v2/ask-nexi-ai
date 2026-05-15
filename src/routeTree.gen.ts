@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatIsNexusRouteImport } from './routes/what-is-nexus'
+import { Route as ProductsRouteImport } from './routes/products'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WhatIsNexusRoute = WhatIsNexusRouteImport.update({
   id: '/what-is-nexus',
   path: '/what-is-nexus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/products': typeof ProductsRoute
   '/what-is-nexus': typeof WhatIsNexusRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/products': typeof ProductsRoute
   '/what-is-nexus': typeof WhatIsNexusRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/products': typeof ProductsRoute
   '/what-is-nexus': typeof WhatIsNexusRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/what-is-nexus'
+  fullPaths: '/' | '/products' | '/what-is-nexus'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/what-is-nexus'
-  id: '__root__' | '/' | '/what-is-nexus'
+  to: '/' | '/products' | '/what-is-nexus'
+  id: '__root__' | '/' | '/products' | '/what-is-nexus'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProductsRoute: typeof ProductsRoute
   WhatIsNexusRoute: typeof WhatIsNexusRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/what-is-nexus'
       fullPath: '/what-is-nexus'
       preLoaderRoute: typeof WhatIsNexusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProductsRoute: ProductsRoute,
   WhatIsNexusRoute: WhatIsNexusRoute,
 }
 export const routeTree = rootRouteImport
