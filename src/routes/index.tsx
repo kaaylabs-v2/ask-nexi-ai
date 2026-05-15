@@ -13,6 +13,8 @@ import { BrowserFrame, GradientBlobs } from "@/components/site/Decor";
 import { Typewriter } from "@/components/site/Typewriter";
 import { Reveal } from "@/components/site/Reveal";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useCurrency } from "@/components/site/CurrencyContext";
+import { plans } from "@/content/pricing";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/")({
@@ -49,7 +51,7 @@ function Hero() {
       <GradientBlobs />
       <div className="container-1200 relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-6 space-y-6">
-          <span className="pill pill-sage"><Sparkles className="h-3 w-3" /> Now in public beta</span>
+          
           <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] font-medium">
             The AI concierge that <span className="serif-em">makes your website</span> answer back.
           </h1>
@@ -383,6 +385,7 @@ function Privacy() {
 }
 
 function Pricing() {
+  const { format } = useCurrency();
   return (
     <section className="container-1200 py-24">
       <Reveal>
@@ -392,24 +395,33 @@ function Pricing() {
         </h2>
       </Reveal>
       <div className="mt-12 grid gap-4 md:grid-cols-3">
-        {pricingTiers.map((t) => (
-          <div key={t.name} className={`card-soft p-7 flex flex-col ${t.popular ? "ring-1 ring-[color:var(--sage)] -translate-y-2" : ""}`}>
-            <div className="flex items-center justify-between">
-              <p className="text-sm font-medium">{t.name}</p>
-              {t.popular && <span className="pill pill-sage">Most popular</span>}
+        {pricingTiers.map((t) => {
+          const priceKey = t.name === "Trial" ? "trial" : t.name === "Pro" ? "pro" : "enterprise";
+          const priceLabel =
+            priceKey === "trial"
+              ? format(plans.trial, { freeLabel: "Free" })
+              : priceKey === "pro"
+              ? format(plans.pro)
+              : format(plans.enterprise, { customLabel: "Custom" });
+          return (
+            <div key={t.name} className={`card-soft p-7 flex flex-col ${t.popular ? "ring-1 ring-[color:var(--sage)] -translate-y-2" : ""}`}>
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-medium">{t.name}</p>
+                {t.popular && <span className="pill pill-sage">Most popular</span>}
+              </div>
+              <p className="mt-4 font-serif italic text-4xl">{priceLabel}<span className="text-sm not-italic font-sans text-muted-foreground"> · {t.period}</span></p>
+              <p className="mt-1 text-sm text-muted-foreground">{t.blurb}</p>
+              <ul className="mt-6 space-y-2 flex-1">
+                {t.features.slice(0, 5).map((f) => (
+                  <li key={f} className="text-sm flex items-start gap-2"><Check className="h-4 w-4 text-[color:var(--sage)] mt-0.5 shrink-0" /> {f}</li>
+                ))}
+              </ul>
+              <Link to={t.cta.href as "/demo"} className={`mt-6 ${t.cta.variant === "primary" ? "btn-primary" : "btn-ghost"} justify-center`}>
+                {t.cta.label}
+              </Link>
             </div>
-            <p className="mt-4 font-serif italic text-4xl">{t.price}<span className="text-sm not-italic font-sans text-muted-foreground"> · {t.period}</span></p>
-            <p className="mt-1 text-sm text-muted-foreground">{t.blurb}</p>
-            <ul className="mt-6 space-y-2 flex-1">
-              {t.features.slice(0, 5).map((f) => (
-                <li key={f} className="text-sm flex items-start gap-2"><Check className="h-4 w-4 text-[color:var(--sage)] mt-0.5 shrink-0" /> {f}</li>
-              ))}
-            </ul>
-            <Link to={t.cta.href as "/demo"} className={`mt-6 ${t.cta.variant === "primary" ? "btn-primary" : "btn-ghost"} justify-center`}>
-              {t.cta.label}
-            </Link>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div className="mt-6 text-center">
         <Link to="/pricing" className="text-sm text-foreground hover:text-[color:var(--sage)]">See full pricing →</Link>
