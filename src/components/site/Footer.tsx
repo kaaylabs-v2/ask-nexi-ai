@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { footerLinks } from "@/lib/content";
 import { Wordmark } from "./Wordmark";
+import { CurrencySwitcher } from "./CurrencySwitcher";
 
 export function Footer() {
   return (
@@ -45,10 +46,13 @@ export function Footer() {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Nexus². Made with care by the Nexus² team.
           </p>
-          <div className="flex items-center gap-3 text-muted-foreground">
-            <a href="#" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-4 w-4" /></a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-4 w-4" /></a>
-            <a href="#" aria-label="GitHub" className="hover:text-foreground"><Github className="h-4 w-4" /></a>
+          <div className="flex items-center gap-4">
+            <CurrencySwitcher showLabel={false} />
+            <div className="flex items-center gap-3 text-muted-foreground">
+              <a href="#" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-4 w-4" /></a>
+              <a href="#" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-4 w-4" /></a>
+              <a href="#" aria-label="GitHub" className="hover:text-foreground"><Github className="h-4 w-4" /></a>
+            </div>
           </div>
         </div>
       </div>
