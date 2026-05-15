@@ -8,9 +8,9 @@ export const Route = createFileRoute("/about")({
 });
 
 const team = [
-  { name: "Santosh Naranapatty", role: "Founder & CEO", ask: "Ask me about navigation analytics." },
+  { name: "Santosh Naranapatty", role: "Founder & CEO, Nexus²", ask: "Ask me about the vision behind Nexus²." },
   { name: "Krishnan N", role: "Founder & CEO, Kaaylabs", ask: "Ask me about scaling AI for the enterprise." },
-  { name: "Swati Sahu", role: "Head of Marketing", ask: "Ask me about copy that doesn't cringe." },
+  { name: "Swati Sahu", role: "Head of Marketing", ask: "Ask me about how we bring Nexus² to market." },
 ];
 
 function About() {
