@@ -55,11 +55,11 @@ export const howItWorks = [
 
 export const platforms = [
   { name: "WordPress", color: "#21759B" },
-  { name: "Shopify", color: "#95BF47" },
-  { name: "Webflow", color: "#4353FF" },
-  { name: "Framer", color: "#0055FF" },
-  { name: "Squarespace", color: "#000000" },
-  { name: "Notion", color: "#000000" },
+  { name: "Shopify", color: "#008060" },
+  { name: "Webflow", color: "#146EF5" },
+  { name: "Framer", color: "#0099FF" },
+  { name: "Squarespace", color: "#1A1A1A" },
+  { name: "Notion", color: "#37352F" },
   { name: "Custom HTML", color: "#6FAE7E" },
 ];
 
