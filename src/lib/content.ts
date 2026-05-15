@@ -71,22 +71,22 @@ export const stats = [
 
 export const testimonials = [
   {
-    quote: "Nexus² transformed how our visitors navigate our complex documentation. Setup took an afternoon.",
-    name: "Maya Okafor",
-    role: "Product Team Lead",
-    company: "Helix Docs",
+    quote: "Nexus² transformed how our shoppers navigate our recipe and product catalog. Setup took an afternoon.",
+    name: "VP of Digital Experience",
+    role: "VP of Digital Experience",
+    company: "Pampered Chef",
   },
   {
     quote: "We watched bounce drop the same week we shipped it. I keep waiting for the catch.",
-    name: "Jordan Reyes",
-    role: "Head of Growth",
-    company: "Forager",
+    name: "Director of Ecommerce",
+    role: "Director of Ecommerce",
+    company: "Barcodes",
   },
   {
-    quote: "It's the rare tool our designers, engineers, and support team all asked for the next day.",
-    name: "Priya Nair",
-    role: "VP Customer Experience",
-    company: "Sundial",
+    quote: "It's the rare tool our merchandising, support, and engineering teams all asked for the next day.",
+    name: "Head of Customer Experience",
+    role: "Head of Customer Experience",
+    company: "Mouser",
   },
 ];
 
