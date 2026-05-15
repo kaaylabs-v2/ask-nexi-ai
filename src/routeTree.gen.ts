@@ -11,7 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatIsNexusRouteImport } from './routes/what-is-nexus'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as DemoRouteImport } from './routes/demo'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsHealthcareRouteImport } from './routes/products.healthcare'
+import { Route as ProductsEnterpriseRouteImport } from './routes/products.enterprise'
+import { Route as ProductsEducationRouteImport } from './routes/products.education'
+import { Route as ProductsEcommerceRouteImport } from './routes/products.ecommerce'
 
 const WhatIsNexusRoute = WhatIsNexusRouteImport.update({
   id: '/what-is-nexus',
@@ -23,39 +33,165 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsHealthcareRoute = ProductsHealthcareRouteImport.update({
+  id: '/healthcare',
+  path: '/healthcare',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsEnterpriseRoute = ProductsEnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsEducationRoute = ProductsEducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsEcommerceRoute = ProductsEcommerceRouteImport.update({
+  id: '/ecommerce',
+  path: '/ecommerce',
+  getParentRoute: () => ProductsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/products': typeof ProductsRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/demo': typeof DemoRoute
+  '/industries': typeof IndustriesRoute
+  '/pricing': typeof PricingRoute
+  '/products': typeof ProductsRouteWithChildren
   '/what-is-nexus': typeof WhatIsNexusRoute
+  '/products/ecommerce': typeof ProductsEcommerceRoute
+  '/products/education': typeof ProductsEducationRoute
+  '/products/enterprise': typeof ProductsEnterpriseRoute
+  '/products/healthcare': typeof ProductsHealthcareRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/products': typeof ProductsRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/demo': typeof DemoRoute
+  '/industries': typeof IndustriesRoute
+  '/pricing': typeof PricingRoute
+  '/products': typeof ProductsRouteWithChildren
   '/what-is-nexus': typeof WhatIsNexusRoute
+  '/products/ecommerce': typeof ProductsEcommerceRoute
+  '/products/education': typeof ProductsEducationRoute
+  '/products/enterprise': typeof ProductsEnterpriseRoute
+  '/products/healthcare': typeof ProductsHealthcareRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/products': typeof ProductsRoute
+  '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/demo': typeof DemoRoute
+  '/industries': typeof IndustriesRoute
+  '/pricing': typeof PricingRoute
+  '/products': typeof ProductsRouteWithChildren
   '/what-is-nexus': typeof WhatIsNexusRoute
+  '/products/ecommerce': typeof ProductsEcommerceRoute
+  '/products/education': typeof ProductsEducationRoute
+  '/products/enterprise': typeof ProductsEnterpriseRoute
+  '/products/healthcare': typeof ProductsHealthcareRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/products' | '/what-is-nexus'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/contact'
+    | '/demo'
+    | '/industries'
+    | '/pricing'
+    | '/products'
+    | '/what-is-nexus'
+    | '/products/ecommerce'
+    | '/products/education'
+    | '/products/enterprise'
+    | '/products/healthcare'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/products' | '/what-is-nexus'
-  id: '__root__' | '/' | '/products' | '/what-is-nexus'
+  to:
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/contact'
+    | '/demo'
+    | '/industries'
+    | '/pricing'
+    | '/products'
+    | '/what-is-nexus'
+    | '/products/ecommerce'
+    | '/products/education'
+    | '/products/enterprise'
+    | '/products/healthcare'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/careers'
+    | '/contact'
+    | '/demo'
+    | '/industries'
+    | '/pricing'
+    | '/products'
+    | '/what-is-nexus'
+    | '/products/ecommerce'
+    | '/products/education'
+    | '/products/enterprise'
+    | '/products/healthcare'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProductsRoute: typeof ProductsRoute
+  AboutRoute: typeof AboutRoute
+  CareersRoute: typeof CareersRoute
+  ContactRoute: typeof ContactRoute
+  DemoRoute: typeof DemoRoute
+  IndustriesRoute: typeof IndustriesRoute
+  PricingRoute: typeof PricingRoute
+  ProductsRoute: typeof ProductsRouteWithChildren
   WhatIsNexusRoute: typeof WhatIsNexusRoute
 }
 
@@ -75,6 +211,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -82,12 +260,64 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/healthcare': {
+      id: '/products/healthcare'
+      path: '/healthcare'
+      fullPath: '/products/healthcare'
+      preLoaderRoute: typeof ProductsHealthcareRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/enterprise': {
+      id: '/products/enterprise'
+      path: '/enterprise'
+      fullPath: '/products/enterprise'
+      preLoaderRoute: typeof ProductsEnterpriseRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/education': {
+      id: '/products/education'
+      path: '/education'
+      fullPath: '/products/education'
+      preLoaderRoute: typeof ProductsEducationRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/ecommerce': {
+      id: '/products/ecommerce'
+      path: '/ecommerce'
+      fullPath: '/products/ecommerce'
+      preLoaderRoute: typeof ProductsEcommerceRouteImport
+      parentRoute: typeof ProductsRoute
+    }
   }
 }
 
+interface ProductsRouteChildren {
+  ProductsEcommerceRoute: typeof ProductsEcommerceRoute
+  ProductsEducationRoute: typeof ProductsEducationRoute
+  ProductsEnterpriseRoute: typeof ProductsEnterpriseRoute
+  ProductsHealthcareRoute: typeof ProductsHealthcareRoute
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsEcommerceRoute: ProductsEcommerceRoute,
+  ProductsEducationRoute: ProductsEducationRoute,
+  ProductsEnterpriseRoute: ProductsEnterpriseRoute,
+  ProductsHealthcareRoute: ProductsHealthcareRoute,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
+  ProductsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProductsRoute: ProductsRoute,
+  AboutRoute: AboutRoute,
+  CareersRoute: CareersRoute,
+  ContactRoute: ContactRoute,
+  DemoRoute: DemoRoute,
+  IndustriesRoute: IndustriesRoute,
+  PricingRoute: PricingRoute,
+  ProductsRoute: ProductsRouteWithChildren,
   WhatIsNexusRoute: WhatIsNexusRoute,
 }
 export const routeTree = rootRouteImport
