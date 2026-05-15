@@ -305,9 +305,13 @@ function Bento() {
         </div>
         {platforms.slice(0, 6).map((p) => (
           <div key={p.name} className="card-soft p-5 relative overflow-hidden">
-            <div aria-hidden className="absolute inset-0" style={{ background: p.color, opacity: 0.08 }} />
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{ background: `linear-gradient(135deg, ${p.color}1F 0%, ${p.color}08 60%, transparent 100%)` }}
+            />
             <div className="relative">
-              <div className="h-8 w-8 rounded-md flex items-center justify-center text-white text-xs font-bold" style={{ background: p.color }}>
+              <div className="h-8 w-8 rounded-md flex items-center justify-center text-white text-xs font-bold shadow-sm" style={{ background: p.color }}>
                 {p.name[0]}
               </div>
               <p className="mt-4 text-sm font-medium">{p.name}</p>
