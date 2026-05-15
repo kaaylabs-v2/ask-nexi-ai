@@ -71,11 +71,11 @@ function Demo() {
         </div>
         <aside className="md:col-span-5 space-y-4">
           {testimonials.map((t) => (
-            <figure key={t.name} className="card-soft p-5">
+            <figure key={t.company} className="card-soft p-5">
               <blockquote className="font-serif italic text-base">"{t.quote}"</blockquote>
               <figcaption className="mt-4 flex items-center gap-3">
-                <div className="h-8 w-8 rounded-full bg-[color:var(--sage)]/30 flex items-center justify-center text-xs font-medium">{t.name.split(" ").map(n => n[0]).join("")}</div>
-                <div><p className="text-sm font-medium">{t.name}</p><p className="text-xs text-muted-foreground">{t.role}, {t.company}</p></div>
+                <div className="h-8 w-8 rounded-full bg-[color:var(--sage)]/30 flex items-center justify-center text-xs font-medium">{t.company.split(" ").map(n => n[0]).join("").slice(0, 2)}</div>
+                <div><p className="text-sm font-medium">{t.role}</p><p className="text-xs text-muted-foreground">{t.company}</p></div>
               </figcaption>
             </figure>
           ))}
